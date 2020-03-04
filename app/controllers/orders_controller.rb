@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    # Apparently already a line_items on @order in all of ruby and its magic
     @line_items = LineItem.where(order_id: params[:id])
 
   end
