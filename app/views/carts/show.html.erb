@@ -1,8 +1,10 @@
 <section class="cart-show">
 
+<% if enhanced_cart.length > 0 %>
   <header class="page-header">
     <h1>My Cart</h1>
   </header>
+
 
   <div class="panel panel-default items">
     <table class="table table-bordered">
@@ -48,5 +50,12 @@
       <% end %>
     </div>
   </div>
-
+  <% else %>
+  <div class="col-md-4 text-center">
+  <h1> Hello your cart is empty, add some products to checkout!</h1>
+  <%= button_to root_path(), class: 'btn btn-primary' , method: :get do %>
+    <%= fa_icon "home", text: 'Home' %>
+  </div>
+  <% end %>
+  <% end %>
 </section>
