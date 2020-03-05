@@ -1,0 +1,17 @@
+<% total = 0 %>
+<% category.products.each do |product| %>
+  <% total += product.quantity %>
+<% end %>
+
+<tr>
+  <td colspan="2">
+    <h4><%= category.name %></h4>
+    <br>
+  </td>
+    <td>
+      <h4><%= category.products.count %></h4>
+    </td>
+  <td>
+    <h4><%= total %></h4>
+  </td>
+</tr>
