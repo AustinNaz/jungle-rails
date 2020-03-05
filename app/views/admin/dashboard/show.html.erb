@@ -4,30 +4,15 @@
   <h1>Admin &raquo; Dashboard</h1>
 </header>
 
-<div class="panel panel-default products">
-  <%# raise @category %>
-  <table class="table table-striped table-bordered table-dark">
-  <thead class="thead-dark">
-  <tr>
-  <th>Categories</th>
-  <% @category.each do |item| %>
-    <th> <%= link_to item.name, category_path(item.id) %> </th>
-  <% end %>
-  <th>Total</th>
-  </tr>
-  </thead>
-  <tr>
-  <th>Quantity</th>
-  <% total = 0 %>
-  <% @category.each do |item| %>
-    <td> <%= link_to item.products.count, admin_products_path %> </td>
-    <% total += item.products.count %>
-  <% end %>
-  <td> <%= total %> </td>
-  </tr>
-  <tr>
-  </table>
-
+<div class="jumbotron">
+  <h1>Total amount of categories: <%= link_to @category.count, admin_products_path %></h1>
 </div>
 
-</section>
+<% total = 0 %>
+  <% @category.each do |item| %>
+    <% total += item.products.count %>
+  <% end %>
+
+<div class="jumbotron">
+  <h1>Total amount of products: <%= link_to total, admin_products_path %> </h1>
+</div>
